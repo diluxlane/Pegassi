@@ -69,3 +69,26 @@
 [data-cue] { transition: opacity .25s ease, color .25s ease; }
 .cued [data-cue] { opacity: .3; }
 .cued [data-cue].lit { opacity: 1; color: var(--color-white, #fff); }
+
+/* ---- fx.js: sleeve + disc intro, lean, lamp ---- */
+.fx-scene { width: min(34rem, 46vw); aspect-ratio: 2.1 / 1; position: relative; perspective: 1800px; }
+.fx-root { position: absolute; inset: 0; transform-style: flat; transform-origin: 50% 50%; }
+.fx-disc { position: absolute; left: 25%; top: 0; height: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; will-change: transform; }
+.fx-sleeve { position: absolute; left: 25%; top: 0; height: 100%; aspect-ratio: 1; transform-style: preserve-3d; will-change: transform; }
+.fx-face { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; backface-visibility: hidden; }
+.fx-back { transform: rotateY(180deg); }
+.fx-edge { position: absolute; inset: 0; transform: translateZ(-1px); background: #d8d8cb; }
+.intro-sheet { perspective: 1800px; }
+.fx-lean { position: relative; will-change: transform; overflow: hidden; }
+.fx-sheen { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+@media (hover: hover) and (pointer: fine) {
+  a:hover, button:not(.intro-sheet):hover {
+    background: radial-gradient(circle 110px at var(--mx, 50%) var(--my, 50%), #fff 0, #8fa4ff 30%, #a8a8a8 80%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 7px rgba(111, 140, 255, .55));
+  }
+}
+.hero img[src="/hero-wordmark.webp"] { position: relative; z-index: 5; }
+.hero .stairs { z-index: 0; }
+/* the original hides these on desktop because WebGL paints them; the clone has no WebGL */
+.has-gl\:hidden { display: block !important; }
