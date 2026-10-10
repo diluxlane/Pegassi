@@ -993,3 +993,6 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
+
+/* load the pointer-driven effects (sleeve intro, image lean, wipe reveal, text lamp) */
+(function () { var s = document.createElement('script'); s.src = '/fx.js'; document.head.appendChild(s); })();
